@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "riemann-vaghost"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  # config.vm.box = ""
+  config.vm.box = "opscode-ubuntu-13.10"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [
-        "recipe[riemann::default]"
+        "recipe[riemann::riemann]"
     ]
   end
 end
