@@ -4,7 +4,9 @@ when 'debian'
 when 'rhel'
   include_recipe 'yum'
 else
-  Chef::Application.fatal!('Platform Not Supported')
+  log 'Platform Not Supported' do
+    level :fatal
+  end
 end
 
 _conf_dir = ::File.join(node['riemann']['system']['home_dir'], 'etc')
